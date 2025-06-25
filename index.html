@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Khyathi Vardhan Inturi | Portfolio</title>
+    <title>Khyathi Vardhan Inturi | Java Full Stack Developer Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
+        body { font-family: 'Inter', sans-serif; }
         /* Custom CSS for animations and effects */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
@@ -82,12 +86,37 @@
             margin: 0.25rem;
         }
         
+        .project-image-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        }
+        
         .project-image {
-            height: 200px;
+            transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+            border-radius: 1rem;
             width: 100%;
+            height: 200px;
             object-fit: cover;
-            background-size: cover;
-            background-position: center;
+            display: block;
+        }
+        
+        .project-image-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(37, 99, 235, 0.15);
+            opacity: 0;
+            transition: opacity 0.4s cubic-bezier(0.4,0,0.2,1);
+            border-radius: 1rem;
+        }
+        
+        .project-image-wrapper:hover .project-image {
+            transform: scale(1.07);
+        }
+        
+        .project-image-wrapper:hover .project-image-overlay {
+            opacity: 1;
         }
         
         .form-success {
@@ -148,8 +177,8 @@
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 mb-12 md:mb-0 animate-fade-in">
                     <h1 class="text-4xl md:text-6xl font-bold mb-4">Hi, I'm <span class="text-blue-500">Khyathi Vardhan Inturi</span></h1>
-                    <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-gray-600">Data Engineer & Analyst</h2>
-                    <p class="text-lg mb-8 text-gray-600 max-w-lg">I build robust data pipelines, analyze complex datasets, and create insightful visualizations to drive data-driven decisions.</p>
+                    <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-gray-600">Java Full Stack Developer</h2>
+                    <p class="text-lg mb-8 text-gray-600 max-w-lg">I build robust full stack web applications using Java, Spring Boot, TypeScript, and modern frontend frameworks. I specialize in integrating cloud solutions like AWS S3 and automating deployments with CI/CD pipelines using GitHub Actions.</p>
                     <div class="flex space-x-4">
                         <a href="#projects" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-medium transition duration-300">View Work</a>
                         <a href="#contact" class="border-2 border-blue-500 text-blue-500 hover:bg-blue-50 px-6 py-3 rounded-lg font-medium transition duration-300">Contact Me</a>
@@ -165,7 +194,7 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-gray-100">
+    <section id="about" class="py-20 bg-gradient-to-b from-gray-100 to-white border-b border-gray-200">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold text-center mb-16 animate-fade-in">About <span class="text-blue-500">Me</span></h2>
             <div class="flex flex-col md:flex-row items-center">
@@ -173,10 +202,10 @@
                     <div class="bg-white p-8 rounded-xl shadow-lg">
                         <img src="https://raw.githubusercontent.com/khyathivardhan18/vardhanR/main/IMG_3509.jpeg" alt="Khyathi Vardhan Inturi" class="w-full h-64 rounded-lg mb-4 object-cover shadow-md" />
                         <h3 class="text-xl font-semibold mb-2">Khyathi Vardhan Inturi</h3>
-                        <p class="text-gray-600 mb-4">Data Engineer & Analyst</p>
+                        <p class="text-gray-600 mb-4">Java Full Stack Developer</p>
                         <div class="flex space-x-4 justify-center">
-                            <a href="https://github.com/khyathivardhan18" target="_blank" class="text-blue-500 hover:text-blue-600 transition-transform hover:scale-110"><i class="fab fa-github text-2xl"></i></a>
-                            <a href="https://www.linkedin.com/in/khyathivardhaninturi/" target="_blank" class="text-blue-500 hover:text-blue-600 transition-transform hover:scale-110"><i class="fab fa-linkedin text-2xl"></i></a>
+                            <a href="https://github.com/Khyathi-inturi" target="_blank" class="text-blue-500 hover:text-blue-600 transition-transform hover:scale-110"><i class="fab fa-github text-2xl"></i></a>
+                            <a href="https://www.linkedin.com/in/khyathi-inturi/" target="_blank" class="text-blue-500 hover:text-blue-600 transition-transform hover:scale-110"><i class="fab fa-linkedin text-2xl"></i></a>
                             <a href="mailto:khyathivardhan18@gmail.com" class="text-blue-500 hover:text-blue-600 transition-transform hover:scale-110"><i class="fas fa-envelope text-2xl"></i></a>
                         </div>
                     </div>
@@ -184,13 +213,10 @@
                 <div class="md:w-2/3 md:pl-12 animate-fade-in delay-200">
                     <h3 class="text-2xl font-semibold mb-6">Who am I?</h3>
                     <p class="text-gray-600 mb-6 leading-relaxed">
-                        I'm a passionate Data Engineer and Analyst with expertise in building scalable data pipelines, performing complex data analysis, 
-                        and creating insightful visualizations. I specialize in Python, SQL, AWS services, and data visualization tools like Power BI and Tableau.
+                        I am a passionate Java Full Stack Developer with hands-on experience in building scalable web applications using Java, Spring Boot, TypeScript, and modern frontend frameworks. My expertise includes developing RESTful APIs, integrating AWS S3 for cloud storage, and automating deployments with CI/CD pipelines using GitHub Actions. I thrive in collaborative environments and enjoy delivering robust, user-centric solutions.
                     </p>
                     <p class="text-gray-600 mb-8 leading-relaxed">
-                        My journey in data engineering started during my undergraduate studies, and since then I've worked on various projects involving 
-                        ETL pipelines, machine learning models, and cloud-based data solutions. I'm currently pursuing my Master's in Information Systems 
-                        at Cleveland State University to further enhance my skills.
+                        My journey in software development started during my undergraduate studies, and since then I've worked on various projects involving full stack development, cloud integration, and automation. I'm currently pursuing my Master's in Information Systems at Cleveland State University to further enhance my skills.
                     </p>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="bg-white p-6 rounded-lg shadow">
@@ -231,7 +257,7 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-20">
+    <section id="skills" class="py-20 bg-white border-b border-gray-100">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold text-center mb-16 animate-fade-in">My <span class="text-blue-500">Skills</span></h2>
             
@@ -240,38 +266,34 @@
                 <h3 class="text-2xl font-semibold mb-6 text-center">Technical Skills</h3>
                 <div class="bg-white p-6 rounded-xl shadow-lg">
                     <div class="flex flex-wrap justify-center">
-                        <span class="skill-badge">Python</span>
+                        <span class="skill-badge">Java</span>
+                        <span class="skill-badge">Spring Boot</span>
+                        <span class="skill-badge">TypeScript</span>
+                        <span class="skill-badge">JavaScript</span>
                         <span class="skill-badge">MySQL</span>
-                        <span class="skill-badge">Tableau</span>
-                        <span class="skill-badge">Power BI</span>
+                        <span class="skill-badge">MongoDB</span>
                         <span class="skill-badge">Pandas</span>
                         <span class="skill-badge">NumPy</span>
                         <span class="skill-badge">MS Excel</span>
-                        <span class="skill-badge">MongoDB</span>
                         <span class="skill-badge">Docker</span>
-                        <span class="skill-badge">AWS</span>
+                        <span class="skill-badge">AWS S3</span>
                         <span class="skill-badge">Data Modeling</span>
-                        <span class="skill-badge">Data Visualization</span>
-                        <span class="skill-badge">Airflow</span>
-                        <span class="skill-badge">Scikit-learn</span>
-                        <span class="skill-badge">PyTorch</span>
-                        <span class="skill-badge">TensorFlow</span>
+                        <span class="skill-badge">REST APIs</span>
+                        <span class="skill-badge">CI/CD (GitHub Actions)</span>
+                        <span class="skill-badge">Agile Development</span>
                     </div>
                 </div>
             </div>
             
             <!-- AWS Services -->
             <div class="mb-12 animate-fade-in delay-200">
-                <h3 class="text-2xl font-semibold mb-6 text-center">AWS Services</h3>
+                <h3 class="text-2xl font-semibold mb-6 text-center">Cloud & DevOps</h3>
                 <div class="bg-white p-6 rounded-xl shadow-lg">
                     <div class="flex flex-wrap justify-center">
-                        <span class="skill-badge">S3</span>
+                        <span class="skill-badge">AWS S3</span>
                         <span class="skill-badge">Lambda</span>
-                        <span class="skill-badge">Glue</span>
-                        <span class="skill-badge">Athena</span>
-                        <span class="skill-badge">Redshift</span>
-                        <span class="skill-badge">EC2</span>
-                        <span class="skill-badge">QuickSight</span>
+                        <span class="skill-badge">Docker</span>
+                        <span class="skill-badge">CI/CD (GitHub Actions)</span>
                     </div>
                 </div>
             </div>
@@ -282,7 +304,6 @@
                 <div class="bg-white p-6 rounded-xl shadow-lg">
                     <div class="flex flex-wrap justify-center">
                         <span class="skill-badge">MySQL</span>
-                        <span class="skill-badge">AWS Redshift</span>
                         <span class="skill-badge">MongoDB</span>
                     </div>
                 </div>
@@ -293,14 +314,9 @@
                 <h3 class="text-2xl font-semibold mb-6 text-center">Development Proficiencies</h3>
                 <div class="bg-white p-6 rounded-xl shadow-lg">
                     <div class="flex flex-wrap justify-center">
-                        <span class="skill-badge">Data Analysis</span>
-                        <span class="skill-badge">Machine Learning</span>
-                        <span class="skill-badge">Feature Engineering</span>
-                        <span class="skill-badge">Statistical Analysis</span>
-                        <span class="skill-badge">ETL Pipelines</span>
-                        <span class="skill-badge">Data Cleaning</span>
-                        <span class="skill-badge">Big Data Integration</span>
-                        <span class="skill-badge">Dashboard Development</span>
+                        <span class="skill-badge">Full Stack Development</span>
+                        <span class="skill-badge">REST APIs</span>
+                        <span class="skill-badge">Cloud Integration</span>
                         <span class="skill-badge">CI/CD</span>
                         <span class="skill-badge">Agile Development</span>
                     </div>
@@ -310,71 +326,83 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-gray-100">
+    <section id="projects" class="py-20 bg-gray-50 border-b border-gray-200">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold text-center mb-16 animate-fade-in">My <span class="text-blue-500">Projects</span></h2>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Project 1 -->
-                <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg animate-fade-in delay-100">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Database Project" class="w-full h-48 object-cover">
+                <div class="project-card bg-white rounded-2xl overflow-hidden shadow-xl animate-fade-in delay-100 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl p-4">
+                    <div class="project-image-wrapper mb-4">
+                        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80" alt="AI IDE Project" class="project-image">
+                        <div class="project-image-overlay"></div>
+                    </div>
                     <div class="p-6">
                         <div class="flex justify-between items-start mb-3">
-                            <h3 class="text-xl font-semibold">JobSphere Inc – Enterprise SQL Database</h3>
+                            <h3 class="text-xl font-semibold">Edith AI IDE – AI-Powered Web IDE</h3>
                             <div class="flex space-x-2">
-                                <a href="https://github.com/khyathivardhan18" target="_blank" class="text-blue-500 hover:text-blue-600"><i class="fab fa-github"></i></a>
+                                <a href="https://github.com/khyathivardhan18/ai-app" target="_blank" class="text-blue-500 hover:text-blue-600"><i class="fab fa-github"></i></a>
                             </div>
                         </div>
-                        <p class="text-gray-600 mb-4">Designed and optimized a fully normalized SQL database for a job notification platform, improving system efficiency by 40%.</p>
+                        <p class="text-gray-600 mb-4">A modern, AI-powered web-based IDE with file explorer, code editor, terminal, and integrated Gemini AI chat assistant. Built with React, TypeScript, Vite, and Tailwind CSS. Features real-time AI code suggestions, modular UI, and CI/CD with GitHub Actions.</p>
                         <div class="flex flex-wrap gap-2">
-                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">SQL</span>
-                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Database Design</span>
-                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Query Optimization</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">TypeScript</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">React</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">AI</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">CI/CD</span>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Project 2 -->
-                <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg animate-fade-in delay-200">
-                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=765&q=80" alt="AWS Project" class="w-full h-48 object-cover">
+                <div class="project-card bg-white rounded-2xl overflow-hidden shadow-xl animate-fade-in delay-200 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl p-4">
+                    <div class="project-image-wrapper mb-4">
+                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Job Portal API Project" class="project-image">
+                        <div class="project-image-overlay"></div>
+                    </div>
                     <div class="p-6">
                         <div class="flex justify-between items-start mb-3">
-                            <h3 class="text-xl font-semibold">RetailPulseAI – AWS Platform</h3>
+                            <h3 class="text-xl font-semibold">Job Portal API</h3>
                             <div class="flex space-x-2">
-                                <a href="https://github.com/khyathivardhan18" target="_blank" class="text-blue-500 hover:text-blue-600"><i class="fab fa-github"></i></a>
+                                <a href="https://github.com/khyathivardhan18/job-portal-api" target="_blank" class="text-blue-500 hover:text-blue-600"><i class="fab fa-github"></i></a>
                             </div>
                         </div>
-                        <p class="text-gray-600 mb-4">Engineered a real-time data pipeline using AWS services to scrape and analyze product prices, reducing manual efforts by 80%.</p>
+                        <p class="text-gray-600 mb-4">A RESTful API for managing jobs, job seekers, and job applications. Built with Java 17, Spring Boot, Spring Security, MySQL, and Swagger UI. Features secure authentication, robust data models, and interactive API documentation.</p>
                         <div class="flex flex-wrap gap-2">
-                            <span class="bg-blue-100 text-blue-800 text-xs px-3py-1 rounded-full">AWS</span>
-                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Python</span>
-                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">ETL</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Java</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Spring Boot</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">MySQL</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">REST API</span>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Project 3 -->
-                <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg animate-fade-in delay-300">
-                    <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Search Engine Project" class="w-full h-48 object-cover">
+                <div class="project-card bg-white rounded-2xl overflow-hidden shadow-xl animate-fade-in delay-300 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl p-4">
+                    <div class="project-image-wrapper mb-4">
+                        <img src="https://media.istockphoto.com/id/2188236845/photo/digital-logistics-and-supply-chain-network-icons-over-warehouse-background.jpg?s=1024x1024&w=is&k=20&c=j7CGgOlnUTqHhMRfjfx3C35huVaZ_b1rBFVzhmiF6fY=" alt="Grocery Store API Project" class="project-image">
+                        <div class="project-image-overlay"></div>
+                    </div>
                     <div class="p-6">
                         <div class="flex justify-between items-start mb-3">
-                            <h3 class="text-xl font-semibold">BookScope Search Engine</h3>
+                            <h3 class="text-xl font-semibold">Grocery Store API</h3>
                             <div class="flex space-x-2">
-                                <a href="https://github.com/khyathivardhan18" target="_blank" class="text-blue-500 hover:text-blue-600"><i class="fab fa-github"></i></a>
+                                <a href="https://github.com/khyathivardhan18/grocery-store-api" target="_blank" class="text-blue-500 hover:text-blue-600"><i class="fab fa-github"></i></a>
                             </div>
                         </div>
-                        <p class="text-gray-600 mb-4">Developed a web application to search and filter over 65,000+ books with TF-IDF vectorization for relevance ranking.</p>
+                        <p class="text-gray-600 mb-4">A Spring Boot-based Java REST API for grocery store inventory management. Supports full CRUD operations, input validation, global exception handling, and API documentation with Swagger. Uses JPA/Hibernate and H2 for development/testing.</p>
                         <div class="flex flex-wrap gap-2">
-                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Python</span>
-                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Flask</span>
-                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">MongoDB</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Java</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Spring Boot</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">REST API</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Swagger</span>
                         </div>
                     </div>
                 </div>
             </div>
             
             <div class="text-center mt-12 animate-fade-in delay-400">
-                <a href="https://github.com/khyathivardhan18" target="_blank" class="inline-flex items-center text-blue-500 hover:text-blue-600 font-medium">
+                <a href="https://github.com/Khyathi-inturi" target="_blank" class="inline-flex items-center text-blue-500 hover:text-blue-600 font-medium">
                     View All Projects on GitHub
                     <i class="fas fa-arrow-right ml-2"></i>
                 </a>
@@ -383,7 +411,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20">
+    <section id="contact" class="py-20 bg-white">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold text-center mb-16 animate-fade-in">Get In <span class="text-blue-500">Touch</span></h2>
             
@@ -429,10 +457,10 @@
                     <div class="mt-8">
                         <h4 class="font-semibold mb-4">Follow Me</h4>
                         <div class="flex space-x-4">
-                            <a href="https://github.com/khyathivardhan18" target="_blank" class="bg-blue-100 hover:bg-blue-200 p-3 rounded-full text-blue-500 transition duration-300 hover:scale-110">
+                            <a href="https://github.com/Khyathi-inturi" target="_blank" class="bg-blue-100 hover:bg-blue-200 p-3 rounded-full text-blue-500 transition duration-300 hover:scale-110">
                                 <i class="fab fa-github"></i>
                             </a>
-                            <a href="https://www.linkedin.com/in/khyathivardhaninturi/" target="_blank" class="bg-blue-100 hover:bg-blue-200 p-3 rounded-full text-blue-500 transition duration-300 hover:scale-110">
+                            <a href="https://www.linkedin.com/in/khyathi-inturi/" target="_blank" class="bg-blue-100 hover:bg-blue-200 p-3 rounded-full text-blue-500 transition duration-300 hover:scale-110">
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
                             <a href="mailto:khyathivardhan18@gmail.com" class="bg-blue-100 hover:bg-blue-200 p-3 rounded-full text-blue-500 transition duration-300 hover:scale-110">
@@ -450,7 +478,7 @@
                         <i class="fas fa-exclamation-circle mr-2"></i> There was an error sending your message. Please try again.
                     </div>
                     
-                    <form id="contact-form" action="https://formspree.io/f/xjvqkqkg" method="POST" class="bg-white p-8 rounded-xl shadow-lg">
+                    <form id="contact-form" action="https://formspree.io/f/xyzjbkew" method="POST" class="bg-white p-8 rounded-xl shadow-lg">
                         <div class="mb-6">
                             <label for="name" class="block text-gray-700 font-medium mb-2">Your Name</label>
                             <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="John Doe" required>
@@ -484,12 +512,12 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-12">
+    <footer class="bg-gray-900 text-white py-12">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-6 md:mb-0">
                     <a href="#" class="text-2xl font-bold text-white">Khyathi Vardhan Inturi</a>
-                    <p class="text-gray-400 mt-2">Transforming data into actionable insights.</p>
+                    <p class="text-gray-400 mt-2">Building robust, scalable web solutions with Java, Spring Boot, and modern frontend technologies.</p>
                 </div>
                 
                 <div class="flex flex-col md:flex-row md:space-x-12 space-y-4 md:space-y-0">
@@ -507,8 +535,8 @@
                     <div>
                         <h4 class="font-semibold mb-3">Connect</h4>
                         <ul class="space-y-2">
-                            <li><a href="https://github.com/khyathivardhan18" target="_blank" class="text-gray-400 hover:text-white transition">GitHub</a></li>
-                            <li><a href="https://www.linkedin.com/in/khyathivardhaninturi/" target="_blank" class="text-gray-400 hover:text-white transition">LinkedIn</a></li>
+                            <li><a href="https://github.com/Khyathi-inturi" target="_blank" class="text-gray-400 hover:text-white transition">GitHub</a></li>
+                            <li><a href="https://www.linkedin.com/in/khyathi-inturi/" target="_blank" class="text-gray-400 hover:text-white transition">LinkedIn</a></li>
                             <li><a href="mailto:khyathivardhan18@gmail.com" class="text-gray-400 hover:text-white transition">Email</a></li>
                         </ul>
                     </div>
