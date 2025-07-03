@@ -10,18 +10,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; }
+        body { font-family: 'Inter', sans-serif; background: var(--primary-bg); color: var(--text-primary); }
         
-        /* Apple-inspired metallic color variables */
+        /* Updated color variables usage */
         :root {
-            --primary-bg: #F5F3EC;      /* Creme Matcha background */
-            --card-bg: #2D4F4A;         /* Velvet Petrol card */
-            --accent: #92A378;          /* Matcha green accent */
-            --text-primary: #0A0F0D;    /* Deep petrol for text */
-            --text-secondary: #5C4F6E;  /* Mauve for secondary text */
-            --border: #D2CDB9;          /* Soft divider */
-            --button-bg: #92A378;       /* Matcha green button */
-            --button-hover: #8DB1A4;    /* Muted teal hover */
+            --primary-bg: #F5F3EC;
+            --card-bg: #2D4F4A;
+            --accent: #92A378;
+            --text-primary: #0A0F0D;
+            --text-secondary: #5C4F6E;
+            --border: #D2CDB9;
+            --button-bg: #92A378;
+            --button-hover: #8DB1A4;
         }
         
         /* Custom CSS for animations and effects */
@@ -46,18 +46,18 @@
         
         .project-card {
             transition: all 0.3s ease;
-            background: var(--metallic-card-gradient);
-            border: 1px solid var(--metallic-border);
+            background: var(--card-bg);
+            border: 1px solid var(--border);
         }
         
         .nav-link {
             position: relative;
-            color: var(--metallic-secondary);
+            color: var(--text-secondary);
             transition: color 0.3s ease;
         }
         
         .nav-link:hover {
-            color: var(--metallic-primary);
+            color: var(--text-primary);
         }
         
         .nav-link::after {
@@ -67,7 +67,7 @@
             height: 2px;
             bottom: 0;
             left: 0;
-            background: var(--metallic-button-gradient);
+            background: var(--button-bg);
             transition: width 0.3s ease;
         }
         
@@ -76,7 +76,7 @@
         }
         
         .active-nav {
-            color: var(--metallic-primary);
+            color: var(--text-primary);
         }
         
         .active-nav::after {
@@ -89,27 +89,27 @@
         }
         
         ::-webkit-scrollbar-track {
-            background: var(--metallic-surface);
+            background: var(--primary-bg);
         }
         
         ::-webkit-scrollbar-thumb {
-            background: var(--metallic-secondary);
+            background: var(--text-secondary);
             border-radius: 4px;
         }
         
         ::-webkit-scrollbar-thumb:hover {
-            background: var(--metallic-primary);
+            background: var(--text-primary);
         }
         
         .skill-badge {
             display: inline-block;
-            background: var(--metallic-gradient);
-            color: var(--metallic-primary);
+            background: var(--card-bg);
+            color: var(--text-primary);
             padding: 0.5rem 1rem;
             border-radius: 20px;
             font-size: 0.875rem;
             margin: 0.25rem;
-            border: 1px solid var(--metallic-border);
+            border: 1px solid var(--border);
             font-weight: 500;
         }
         
@@ -146,8 +146,31 @@
             opacity: 1;
         }
         
-        .metallic-button {
-            background: var(--metallic-button-gradient);
+        .card-bg, .metallic-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .card-bg:hover, .metallic-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        .section-bg, .metallic-section {
+            background: var(--primary-bg);
+        }
+        .text-primary, .metallic-text-primary {
+            color: var(--text-primary);
+        }
+        .text-secondary, .metallic-text-secondary {
+            color: var(--text-secondary);
+        }
+        .text-accent, .metallic-text-accent {
+            color: var(--accent);
+        }
+        .button-bg, .metallic-button {
+            background: var(--button-bg);
             color: white;
             padding: 0.75rem 1.5rem;
             border-radius: 12px;
@@ -156,41 +179,25 @@
             border: none;
             cursor: pointer;
         }
-        
-        .metallic-button:hover {
-            background: var(--metallic-hover-gradient);
+        .button-bg:hover, .metallic-button:hover {
+            background: var(--button-hover);
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+            box-shadow: 0 8px 25px rgba(146, 163, 120, 0.3);
         }
-        
-        .metallic-outline-button {
+        .outline-button, .metallic-outline-button {
             background: transparent;
-            color: var(--metallic-accent);
+            color: var(--accent);
             padding: 0.75rem 1.5rem;
             border-radius: 12px;
             font-weight: 600;
             transition: all 0.3s ease;
-            border: 2px solid var(--metallic-accent);
+            border: 2px solid var(--accent);
             cursor: pointer;
         }
-        
-        .metallic-outline-button:hover {
-            background: var(--metallic-accent);
+        .outline-button:hover, .metallic-outline-button:hover {
+            background: var(--accent);
             color: white;
             transform: translateY(-2px);
-        }
-        
-        .metallic-card {
-            background: var(--metallic-card-gradient);
-            border: 1px solid var(--metallic-border);
-            border-radius: 16px;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-        }
-        
-        .metallic-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
         
         .form-success {
@@ -214,22 +221,6 @@
             text-align: center;
             border: 1px solid #fca5a5;
         }
-        
-        .metallic-section {
-            background: var(--metallic-gradient);
-        }
-        
-        .metallic-text-primary {
-            color: var(--metallic-primary);
-        }
-        
-        .metallic-text-secondary {
-            color: var(--metallic-secondary);
-        }
-        
-        .metallic-text-accent {
-            color: var(--metallic-accent);
-        }
     </style>
 </head>
 <body class="bg-gray-50 font-sans text-gray-800">
@@ -237,7 +228,7 @@
     <nav class="fixed w-full bg-white/80 backdrop-blur-md shadow-sm z-50 border-b border-gray-200">
         <div class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
-                <a href="#" class="text-2xl font-bold metallic-text-accent">Khyathi Vardhan Inturi</a>
+                <a href="#" class="text-2xl font-bold text-primary">Khyathi Vardhan Inturi</a>
                 <div class="hidden md:flex space-x-8">
                     <a href="#home" class="nav-link active-nav">Home</a>
                     <a href="#about" class="nav-link">About</a>
@@ -264,16 +255,16 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center pt-20 metallic-section">
+    <section id="home" class="min-h-screen flex items-center pt-20 section-bg">
         <div class="container mx-auto px-6 py-20">
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 mb-12 md:mb-0 animate-fade-in">
-                    <h1 class="text-4xl md:text-6xl font-bold mb-4 metallic-text-primary">Hi, I'm <span class="metallic-text-accent">Khyathi Vardhan Inturi</span></h1>
-                    <h2 class="text-2xl md:text-3xl font-semibold mb-6 metallic-text-secondary">Java Full Stack Developer</h2>
-                    <p class="text-lg mb-8 metallic-text-secondary max-w-lg">I build robust full stack web applications using Java, Spring Boot, TypeScript, and modern frontend frameworks. I specialize in integrating cloud solutions like AWS S3 and automating deployments with CI/CD pipelines using GitHub Actions.</p>
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4 text-primary">Hi, I'm <span class="text-accent">Khyathi Vardhan Inturi</span></h1>
+                    <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-secondary">Java Full Stack Developer</h2>
+                    <p class="text-lg mb-8 text-secondary max-w-lg">I build robust full stack web applications using Java, Spring Boot, TypeScript, and modern frontend frameworks. I specialize in integrating cloud solutions like AWS S3 and automating deployments with CI/CD pipelines using GitHub Actions.</p>
                     <div class="flex space-x-4">
-                        <a href="#projects" class="metallic-button">View Work</a>
-                        <a href="#contact" class="metallic-outline-button">Contact Me</a>
+                        <a href="#projects" class="button-bg">View Work</a>
+                        <a href="#contact" class="outline-button">Contact Me</a>
                     </div>
                 </div>
                 <div class="md:w-1/2 animate-fade-in delay-200">
@@ -288,58 +279,58 @@
     <!-- About Section -->
     <section id="about" class="py-20 bg-white border-b border-gray-200">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-16 animate-fade-in metallic-text-primary">About <span class="metallic-text-accent">Me</span></h2>
+            <h2 class="text-3xl font-bold text-center mb-16 animate-fade-in text-primary">About <span class="text-accent">Me</span></h2>
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/3 mb-10 md:mb-0 animate-fade-in delay-100">
-                    <div class="metallic-card">
+                    <div class="card-bg">
                         <img src="https://raw.githubusercontent.com/khyathivardhan18/vardhanR/main/IMG_3509.jpeg" alt="Khyathi Vardhan Inturi" class="w-full h-64 rounded-lg mb-4 object-cover shadow-md" />
-                        <h3 class="text-xl font-semibold mb-2 metallic-text-primary">Khyathi Vardhan Inturi</h3>
-                        <p class="metallic-text-secondary mb-4">Java Full Stack Developer</p>
+                        <h3 class="text-xl font-semibold mb-2 text-primary">Khyathi Vardhan Inturi</h3>
+                        <p class="text-secondary mb-4">Java Full Stack Developer</p>
                         <div class="flex space-x-4 justify-center">
-                            <a href="https://github.com/Khyathi-inturi" target="_blank" class="metallic-text-accent hover:text-purple-600 transition-transform hover:scale-110"><i class="fab fa-github text-2xl"></i></a>
-                            <a href="https://www.linkedin.com/in/khyathi-inturi/" target="_blank" class="metallic-text-accent hover:text-purple-600 transition-transform hover:scale-110"><i class="fab fa-linkedin text-2xl"></i></a>
-                            <a href="mailto:khyathivardhan18@gmail.com" class="metallic-text-accent hover:text-purple-600 transition-transform hover:scale-110"><i class="fas fa-envelope text-2xl"></i></a>
+                            <a href="https://github.com/Khyathi-inturi" target="_blank" class="text-accent hover:text-purple-600 transition-transform hover:scale-110"><i class="fab fa-github text-2xl"></i></a>
+                            <a href="https://www.linkedin.com/in/khyathi-inturi/" target="_blank" class="text-accent hover:text-purple-600 transition-transform hover:scale-110"><i class="fab fa-linkedin text-2xl"></i></a>
+                            <a href="mailto:khyathivardhan18@gmail.com" class="text-accent hover:text-purple-600 transition-transform hover:scale-110"><i class="fas fa-envelope text-2xl"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="md:w-2/3 md:pl-12 animate-fade-in delay-200">
-                    <h3 class="text-2xl font-semibold mb-6 metallic-text-primary">Who am I?</h3>
-                    <p class="metallic-text-secondary mb-6 leading-relaxed">
+                    <h3 class="text-2xl font-semibold mb-6 text-primary">Who am I?</h3>
+                    <p class="text-secondary mb-6 leading-relaxed">
                         I am a passionate Java Full Stack Developer with hands-on experience in building scalable web applications using Java, Spring Boot, TypeScript, and modern frontend frameworks. My expertise includes developing RESTful APIs, integrating AWS S3 for cloud storage, and automating deployments with CI/CD pipelines using GitHub Actions. I thrive in collaborative environments and enjoy delivering robust, user-centric solutions.
                     </p>
-                    <p class="metallic-text-secondary mb-8 leading-relaxed">
+                    <p class="text-secondary mb-8 leading-relaxed">
                         My journey in software development started during my undergraduate studies, and since then I've worked on various projects involving full stack development, cloud integration, and automation. I'm currently pursuing my Master's in Information Systems at Cleveland State University to further enhance my skills.
                     </p>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="metallic-card">
+                        <div class="card-bg">
                             <div class="flex items-center mb-3">
                                 <div class="bg-purple-100 p-2 rounded-full mr-3">
-                                    <i class="fas fa-graduation-cap metallic-text-accent"></i>
+                                    <i class="fas fa-graduation-cap text-accent"></i>
                                 </div>
-                                <h4 class="font-semibold metallic-text-primary">Education</h4>
+                                <h4 class="font-semibold text-primary">Education</h4>
                             </div>
                             <div class="space-y-4">
                                 <div>
-                                    <p class="font-medium metallic-text-primary">Master of Science, Information Systems</p>
-                                    <p class="metallic-text-secondary text-sm">Cleveland State University, OH (Aug 2023 – May 2025)</p>
+                                    <p class="font-medium text-primary">Master of Science, Information Systems</p>
+                                    <p class="text-secondary text-sm">Cleveland State University, OH (Aug 2023 – May 2025)</p>
                                 </div>
                                 <div>
-                                    <p class="font-medium metallic-text-primary">Bachelor of Technology, Computer Science</p>
-                                    <p class="metallic-text-secondary text-sm">Vellore Institute of Technology, IND (Apr 2018 – Jul 2022)</p>
+                                    <p class="font-medium text-primary">Bachelor of Technology, Computer Science</p>
+                                    <p class="text-secondary text-sm">Vellore Institute of Technology, IND (Apr 2018 – Jul 2022)</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="metallic-card">
+                        <div class="card-bg">
                             <div class="flex items-center mb-3">
                                 <div class="bg-purple-100 p-2 rounded-full mr-3">
-                                    <i class="fas fa-certificate metallic-text-accent"></i>
+                                    <i class="fas fa-certificate text-accent"></i>
                                 </div>
-                                <h4 class="font-semibold metallic-text-primary">Certifications</h4>
+                                <h4 class="font-semibold text-primary">Certifications</h4>
                             </div>
                             <div class="space-y-2">
-                                <p class="metallic-text-secondary text-sm">AWS Certified Data Engineer Associate</p>
-                                <p class="metallic-text-secondary text-sm">Oracle Cloud Infrastructure 2023 Certified Foundations Associate</p>
-                                <p class="metallic-text-secondary text-sm">HakerRank-5-Star (Advance Level Exam Certified)</p>
+                                <p class="text-secondary text-sm">AWS Certified Data Engineer Associate</p>
+                                <p class="text-secondary text-sm">Oracle Cloud Infrastructure 2023 Certified Foundations Associate</p>
+                                <p class="text-secondary text-sm">HakerRank-5-Star (Advance Level Exam Certified)</p>
                             </div>
                         </div>
                     </div>
@@ -349,14 +340,14 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-20 metallic-section border-b border-gray-200">
+    <section id="skills" class="py-20 section-bg border-b border-gray-200">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-16 animate-fade-in metallic-text-primary">My <span class="metallic-text-accent">Skills</span></h2>
+            <h2 class="text-3xl font-bold text-center mb-16 animate-fade-in text-primary">My <span class="text-accent">Skills</span></h2>
             
             <!-- Technical Skills -->
             <div class="mb-12 animate-fade-in delay-100">
-                <h3 class="text-2xl font-semibold mb-6 text-center metallic-text-primary">Technical Skills</h3>
-                <div class="metallic-card">
+                <h3 class="text-2xl font-semibold mb-6 text-center text-primary">Technical Skills</h3>
+                <div class="card-bg">
                     <div class="flex flex-wrap justify-center">
                         <span class="skill-badge">Java</span>
                         <span class="skill-badge">Spring Boot</span>
@@ -379,8 +370,8 @@
             
             <!-- AWS Services -->
             <div class="mb-12 animate-fade-in delay-200">
-                <h3 class="text-2xl font-semibold mb-6 text-center metallic-text-primary">Cloud & DevOps</h3>
-                <div class="metallic-card">
+                <h3 class="text-2xl font-semibold mb-6 text-center text-primary">Cloud & DevOps</h3>
+                <div class="card-bg">
                     <div class="flex flex-wrap justify-center">
                         <span class="skill-badge">AWS S3</span>
                         <span class="skill-badge">Lambda</span>
@@ -392,8 +383,8 @@
             
             <!-- Databases -->
             <div class="mb-12 animate-fade-in delay-300">
-                <h3 class="text-2xl font-semibold mb-6 text-center metallic-text-primary">Databases</h3>
-                <div class="metallic-card">
+                <h3 class="text-2xl font-semibold mb-6 text-center text-primary">Databases</h3>
+                <div class="card-bg">
                     <div class="flex flex-wrap justify-center">
                         <span class="skill-badge">MySQL</span>
                         <span class="skill-badge">MongoDB</span>
@@ -403,8 +394,8 @@
             
             <!-- Development Proficiencies -->
             <div class="animate-fade-in delay-400">
-                <h3 class="text-2xl font-semibold mb-6 text-center metallic-text-primary">Development Proficiencies</h3>
-                <div class="metallic-card">
+                <h3 class="text-2xl font-semibold mb-6 text-center text-primary">Development Proficiencies</h3>
+                <div class="card-bg">
                     <div class="flex flex-wrap justify-center">
                         <span class="skill-badge">Full Stack Development</span>
                         <span class="skill-badge">REST APIs</span>
@@ -420,23 +411,23 @@
     <!-- Projects Section -->
     <section id="projects" class="py-20 bg-white border-b border-gray-200">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-16 animate-fade-in metallic-text-primary">My <span class="metallic-text-accent">Projects</span></h2>
+            <h2 class="text-3xl font-bold text-center mb-16 animate-fade-in text-primary">My <span class="text-accent">Projects</span></h2>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Project 1 -->
-                <div class="project-card metallic-card animate-fade-in delay-100 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                <div class="project-card card-bg animate-fade-in delay-100 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
                     <div class="project-image-wrapper mb-4">
                         <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80" alt="AI IDE Project" class="project-image">
                         <div class="project-image-overlay"></div>
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-start mb-3">
-                            <h3 class="text-xl font-semibold metallic-text-primary">Edith AI IDE – AI-Powered Web IDE</h3>
+                            <h3 class="text-xl font-semibold text-primary">Edith AI IDE – AI-Powered Web IDE</h3>
                             <div class="flex space-x-2">
-                                <a href="https://github.com/khyathivardhan18/ai-app" target="_blank" class="metallic-text-accent hover:text-purple-600"><i class="fab fa-github"></i></a>
+                                <a href="https://github.com/khyathivardhan18/ai-app" target="_blank" class="text-accent hover:text-purple-600"><i class="fab fa-github"></i></a>
                             </div>
                         </div>
-                        <p class="metallic-text-secondary mb-4">A modern, AI-powered web-based IDE with file explorer, code editor, terminal, and integrated Gemini AI chat assistant. Built with React, TypeScript, Vite, and Tailwind CSS. Features real-time AI code suggestions, modular UI, and CI/CD with GitHub Actions.</p>
+                        <p class="text-secondary mb-4">A modern, AI-powered web-based IDE with file explorer, code editor, terminal, and integrated Gemini AI chat assistant. Built with React, TypeScript, Vite, and Tailwind CSS. Features real-time AI code suggestions, modular UI, and CI/CD with GitHub Actions.</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="skill-badge">TypeScript</span>
                             <span class="skill-badge">React</span>
@@ -447,19 +438,19 @@
                 </div>
                 
                 <!-- Project 2 -->
-                <div class="project-card metallic-card animate-fade-in delay-200 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                <div class="project-card card-bg animate-fade-in delay-200 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
                     <div class="project-image-wrapper mb-4">
                         <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Job Portal API Project" class="project-image">
                         <div class="project-image-overlay"></div>
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-start mb-3">
-                            <h3 class="text-xl font-semibold metallic-text-primary">Job Portal API</h3>
+                            <h3 class="text-xl font-semibold text-primary">Job Portal API</h3>
                             <div class="flex space-x-2">
-                                <a href="https://github.com/khyathivardhan18/job-portal-api" target="_blank" class="metallic-text-accent hover:text-purple-600"><i class="fab fa-github"></i></a>
+                                <a href="https://github.com/khyathivardhan18/job-portal-api" target="_blank" class="text-accent hover:text-purple-600"><i class="fab fa-github"></i></a>
                             </div>
                         </div>
-                        <p class="metallic-text-secondary mb-4">A RESTful API for managing jobs, job seekers, and job applications. Built with Java 17, Spring Boot, Spring Security, MySQL, and Swagger UI. Features secure authentication, robust data models, and interactive API documentation.</p>
+                        <p class="text-secondary mb-4">A RESTful API for managing jobs, job seekers, and job applications. Built with Java 17, Spring Boot, Spring Security, MySQL, and Swagger UI. Features secure authentication, robust data models, and interactive API documentation.</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="skill-badge">Java</span>
                             <span class="skill-badge">Spring Boot</span>
@@ -470,19 +461,19 @@
                 </div>
                 
                 <!-- Project 3 -->
-                <div class="project-card metallic-card animate-fade-in delay-300 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                <div class="project-card card-bg animate-fade-in delay-300 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
                     <div class="project-image-wrapper mb-4">
                         <img src="https://media.istockphoto.com/id/2188236845/photo/digital-logistics-and-supply-chain-network-icons-over-warehouse-background.jpg?s=1024x1024&w=is&k=20&c=j7CGgOlnUTqHhMRfjfx3C35huVaZ_b1rBFVzhmiF6fY=" alt="Grocery Store API Project" class="project-image">
                         <div class="project-image-overlay"></div>
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-start mb-3">
-                            <h3 class="text-xl font-semibold metallic-text-primary">Grocery Store API</h3>
+                            <h3 class="text-xl font-semibold text-primary">Grocery Store API</h3>
                             <div class="flex space-x-2">
-                                <a href="https://github.com/khyathivardhan18/grocery-store-api" target="_blank" class="metallic-text-accent hover:text-purple-600"><i class="fab fa-github"></i></a>
+                                <a href="https://github.com/khyathivardhan18/grocery-store-api" target="_blank" class="text-accent hover:text-purple-600"><i class="fab fa-github"></i></a>
                             </div>
                         </div>
-                        <p class="metallic-text-secondary mb-4">A Spring Boot-based Java REST API for grocery store inventory management. Supports full CRUD operations, input validation, global exception handling, and API documentation with Swagger. Uses JPA/Hibernate and H2 for development/testing.</p>
+                        <p class="text-secondary mb-4">A Spring Boot-based Java REST API for grocery store inventory management. Supports full CRUD operations, input validation, global exception handling, and API documentation with Swagger. Uses JPA/Hibernate and H2 for development/testing.</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="skill-badge">Java</span>
                             <span class="skill-badge">Spring Boot</span>
@@ -494,7 +485,7 @@
             </div>
             
             <div class="text-center mt-12 animate-fade-in delay-400">
-                <a href="https://github.com/Khyathi-inturi" target="_blank" class="inline-flex items-center metallic-text-accent hover:text-purple-600 font-medium">
+                <a href="https://github.com/Khyathi-inturi" target="_blank" class="inline-flex items-center text-accent hover:text-purple-600 font-medium">
                     View All Projects on GitHub
                     <i class="fas fa-arrow-right ml-2"></i>
                 </a>
@@ -503,59 +494,59 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 metallic-section">
+    <section id="contact" class="py-20 section-bg">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-16 animate-fade-in metallic-text-primary">Get In <span class="metallic-text-accent">Touch</span></h2>
+            <h2 class="text-3xl font-bold text-center mb-16 animate-fade-in text-primary">Get In <span class="text-accent">Touch</span></h2>
             
             <div class="flex flex-col md:flex-row">
                 <div class="md:w-1/2 mb-12 md:mb-0 animate-fade-in delay-100">
-                    <h3 class="text-2xl font-semibold mb-6 metallic-text-primary">Contact Information</h3>
-                    <p class="metallic-text-secondary mb-8 max-w-md">
+                    <h3 class="text-2xl font-semibold mb-6 text-primary">Contact Information</h3>
+                    <p class="text-secondary mb-8 max-w-md">
                         Feel free to reach out if you're looking for a Java Full Stack Developer, have a question about my projects, or just want to connect. I'm always open to discussing new opportunities and collaborations.
                     </p>
                     
                     <div class="space-y-6">
                         <div class="flex items-start">
                             <div class="bg-purple-100 p-3 rounded-full mr-4">
-                                <i class="fas fa-envelope metallic-text-accent"></i>
+                                <i class="fas fa-envelope text-accent"></i>
                             </div>
                             <div>
-                                <h4 class="font-semibold metallic-text-primary">Email</h4>
-                                <a href="mailto:khyathivardhan18@gmail.com" class="metallic-text-secondary hover:metallic-text-accent">khyathivardhan18@gmail.com</a>
+                                <h4 class="font-semibold text-primary">Email</h4>
+                                <a href="mailto:khyathivardhan18@gmail.com" class="text-secondary hover:text-accent">khyathivardhan18@gmail.com</a>
                             </div>
                         </div>
                         
                         <div class="flex items-start">
                             <div class="bg-purple-100 p-3 rounded-full mr-4">
-                                <i class="fas fa-phone-alt metallic-text-accent"></i>
+                                <i class="fas fa-phone-alt text-accent"></i>
                             </div>
                             <div>
-                                <h4 class="font-semibold metallic-text-primary">Phone</h4>
-                                <a href="tel:2163743871" class="metallic-text-secondary hover:metallic-text-accent">(216)-374-3871</a>
+                                <h4 class="font-semibold text-primary">Phone</h4>
+                                <a href="tel:2163743871" class="text-secondary hover:text-accent">(216)-374-3871</a>
                             </div>
                         </div>
                         
                         <div class="flex items-start">
                             <div class="bg-purple-100 p-3 rounded-full mr-4">
-                                <i class="fas fa-map-marker-alt metallic-text-accent"></i>
+                                <i class="fas fa-map-marker-alt text-accent"></i>
                             </div>
                             <div>
-                                <h4 class="font-semibold metallic-text-primary">Location</h4>
-                                <p class="metallic-text-secondary">Cleveland, OH</p>
+                                <h4 class="font-semibold text-primary">Location</h4>
+                                <p class="text-secondary">Cleveland, OH</p>
                             </div>
                         </div>
                     </div>
                     
                     <div class="mt-8">
-                        <h4 class="font-semibold mb-4 metallic-text-primary">Follow Me</h4>
+                        <h4 class="font-semibold mb-4 text-primary">Follow Me</h4>
                         <div class="flex space-x-4">
-                            <a href="https://github.com/Khyathi-inturi" target="_blank" class="bg-purple-100 hover:bg-purple-200 p-3 rounded-full metallic-text-accent transition duration-300 hover:scale-110">
+                            <a href="https://github.com/Khyathi-inturi" target="_blank" class="bg-purple-100 hover:bg-purple-200 p-3 rounded-full text-accent transition duration-300 hover:scale-110">
                                 <i class="fab fa-github"></i>
                             </a>
-                            <a href="https://www.linkedin.com/in/khyathi-inturi/" target="_blank" class="bg-purple-100 hover:bg-purple-200 p-3 rounded-full metallic-text-accent transition duration-300 hover:scale-110">
+                            <a href="https://www.linkedin.com/in/khyathi-inturi/" target="_blank" class="bg-purple-100 hover:bg-purple-200 p-3 rounded-full text-accent transition duration-300 hover:scale-110">
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
-                            <a href="mailto:khyathivardhan18@gmail.com" class="bg-purple-100 hover:bg-purple-200 p-3 rounded-full metallic-text-accent transition duration-300 hover:scale-110">
+                            <a href="mailto:khyathivardhan18@gmail.com" class="bg-purple-100 hover:bg-purple-200 p-3 rounded-full text-accent transition duration-300 hover:scale-110">
                                 <i class="fas fa-envelope"></i>
                             </a>
                         </div>
@@ -570,28 +561,28 @@
                         <i class="fas fa-exclamation-circle mr-2"></i> There was an error sending your message. Please try again.
                     </div>
                     
-                    <form id="contact-form" action="https://formspree.io/f/xyzjbkew" method="POST" class="metallic-card">
+                    <form id="contact-form" action="https://formspree.io/f/xyzjbkew" method="POST" class="card-bg">
                         <div class="mb-6">
-                            <label for="name" class="block metallic-text-primary font-medium mb-2">Your Name</label>
+                            <label for="name" class="block text-primary font-medium mb-2">Your Name</label>
                             <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="John Doe" required>
                         </div>
                         
                         <div class="mb-6">
-                            <label for="email" class="block metallic-text-primary font-medium mb-2">Email Address</label>
+                            <label for="email" class="block text-primary font-medium mb-2">Email Address</label>
                             <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="john@example.com" required>
                         </div>
                         
                         <div class="mb-6">
-                            <label for="subject" class="block metallic-text-primary font-medium mb-2">Subject</label>
+                            <label for="subject" class="block text-primary font-medium mb-2">Subject</label>
                             <input type="text" id="subject" name="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Project Inquiry" required>
                         </div>
                         
                         <div class="mb-6">
-                            <label for="message" class="block metallic-text-primary font-medium mb-2">Message</label>
+                            <label for="message" class="block text-primary font-medium mb-2">Message</label>
                             <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Your message here..." required></textarea>
                         </div>
                         
-                        <button type="submit" class="w-full metallic-button">
+                        <button type="submit" class="w-full button-bg">
                             <span id="submit-text">Send Message</span>
                             <span id="submit-spinner" class="hidden">
                                 <i class="fas fa-spinner fa-spin ml-2"></i>
@@ -642,7 +633,7 @@
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="back-to-top" class="fixed bottom-8 right-8 metallic-button opacity-0 invisible transition-all duration-300">
+    <button id="back-to-top" class="fixed bottom-8 right-8 button-bg opacity-0 invisible transition-all duration-300">
         <i class="fas fa-arrow-up"></i>
     </button>
 
