@@ -14,16 +14,14 @@
         
         /* Apple-inspired metallic color variables */
         :root {
-            --metallic-primary: #1d1d1f;
-            --metallic-secondary: #86868b;
-            --metallic-accent: #8B5CF6;
-            --metallic-surface: #f5f5f7;
-            --metallic-card: #ffffff;
-            --metallic-border: #d2d2d7;
-            --metallic-gradient: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%);
-            --metallic-card-gradient: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
-            --metallic-button-gradient: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
-            --metallic-hover-gradient: linear-gradient(135deg, #7C3AED 0%, #8B5CF6 100%);
+            --primary-bg: #F5F3EC;      /* Creme Matcha background */
+            --card-bg: #2D4F4A;         /* Velvet Petrol card */
+            --accent: #92A378;          /* Matcha green accent */
+            --text-primary: #0A0F0D;    /* Deep petrol for text */
+            --text-secondary: #5C4F6E;  /* Mauve for secondary text */
+            --border: #D2CDB9;          /* Soft divider */
+            --button-bg: #92A378;       /* Matcha green button */
+            --button-hover: #8DB1A4;    /* Muted teal hover */
         }
         
         /* Custom CSS for animations and effects */
@@ -638,7 +636,7 @@
             </div>
             
             <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
-                <p>&copy; 2023 Khyathi Vardhan Inturi. All rights reserved.</p>
+                <p>&copy; <span id="copyright-year"></span> Khyathi Vardhan Inturi. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -772,6 +770,9 @@
                 }
             });
         }
+        
+        // Set dynamic copyright year
+        document.getElementById('copyright-year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
